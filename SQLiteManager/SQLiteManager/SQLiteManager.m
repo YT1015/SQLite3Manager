@@ -180,7 +180,6 @@ static sqlite3 *sqlite;
          NSLog(@"%s",error);
     }
     // 数据库关闭
-    
     sqlite3_close(sqlite);
     
     
@@ -205,7 +204,6 @@ static sqlite3 *sqlite;
         
     }
     // 数据库关闭
-    
     sqlite3_close(sqlite);
 }
 - (void)sqliteDeleteAllDataWithTableName:(id)objc{
@@ -221,7 +219,6 @@ static sqlite3 *sqlite;
         
     }
     // 数据库关闭
-    
     sqlite3_close(sqlite);
 }
 //修改表中某条数据
@@ -239,7 +236,7 @@ static sqlite3 *sqlite;
         
         if (i==arr.count-1) {
            
-            if ([keyName isEqualToString:arr[i]]) {
+            if ([keyName isEqualToString:arr[i]]) {//如果是最后一个 删掉“,”号 
                 [sqlStr deleteCharactersInRange:NSMakeRange(sqlStr.length-1, 1)];
                 [sqlStr appendFormat:@" where %@='%@'",keyName,value];
             }else{
@@ -264,7 +261,6 @@ static sqlite3 *sqlite;
         NSLog(@"修改失败");
     }
     // 数据库关闭
-    
     sqlite3_close(sqlite);
     
 }
@@ -305,7 +301,6 @@ static sqlite3 *sqlite;
     }
     sqlite3_finalize(stmt);
     // 数据库关闭
-    
     sqlite3_close(sqlite);
     return arr;
 }
@@ -347,7 +342,6 @@ static sqlite3 *sqlite;
     
     sqlite3_finalize(stmt);
     // 数据库关闭
-    
     sqlite3_close(sqlite);
     return arr;
 }
